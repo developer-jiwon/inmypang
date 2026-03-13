@@ -17,7 +17,7 @@ const pillColors = [
 
 export function CurationBar() {
   return (
-    <div className="overflow-hidden border-y border-[#d0e4f0]/40 bg-gradient-to-r from-[#e8f1f8] via-[#f0f4f8] to-[#e8f1f8]">
+    <div className="overflow-hidden border-y border-[#b8d4e8]/50 bg-gradient-to-r from-[#d4e6f1] via-[#e1ecf4] to-[#d4e6f1]">
       <div className="relative flex whitespace-nowrap">
         <div className="flex animate-marquee gap-3 py-2.5 pr-3">
           {allCollections.map((col, i) => (
