@@ -22,7 +22,7 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   // TODO: 배포 후 실제 도메인으로 교체
-  metadataBase: new URL("https://your-domain.com"),
+  metadataBase: new URL("https://inmypang.vercel.app"),
   title: "인마이팡 | IN MY PANG",
   description: "해외살이 30대의 솔직한 한국 쇼핑 큐레이션",
   openGraph: {

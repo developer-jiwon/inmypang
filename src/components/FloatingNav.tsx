@@ -38,17 +38,20 @@ export function FloatingNav() {
       )}
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-foreground text-white shadow-lg transition-all hover:scale-105 active:scale-95"
+        className="flex items-center gap-2 rounded-full bg-foreground px-4 py-3 text-white shadow-lg transition-all hover:scale-105 active:scale-95"
       >
         {open ? (
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M4.5 4.5l9 9M13.5 4.5l-9 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         ) : (
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M3 5.5h12M3 9h12M3 12.5h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2" fill="none" />
+            <path d="M2 6h12" stroke="currentColor" strokeWidth="1.2" />
+            <path d="M6 6v7" stroke="currentColor" strokeWidth="1.2" />
           </svg>
         )}
+        <span className="text-[11px] font-semibold tracking-wide">큐레이션</span>
       </button>
     </div>
   );
