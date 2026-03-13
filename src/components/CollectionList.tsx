@@ -15,7 +15,7 @@ const mustardGradients = [
 
 function ProductCard({ product }: { product: { id: number; name: string; price: string; img: string; note: string; badge?: string } }) {
   return (
-    <a href="#" className="group product-card rounded-xl bg-card-bg border border-border/60 overflow-hidden">
+    <a href="#" className="group product-card w-[40vw] shrink-0 rounded-xl bg-card-bg border border-border/60 overflow-hidden sm:w-auto sm:shrink">
       <div className="relative aspect-square overflow-hidden bg-tag-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -80,7 +80,7 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
           <p className="text-[11px] text-foreground/50 truncate">{collection.subtitle}</p>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide sm:grid sm:grid-cols-3 sm:overflow-visible md:grid-cols-4">
         {collection.products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
