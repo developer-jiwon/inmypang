@@ -82,6 +82,10 @@ body {
   animation: marquee 45s linear infinite;
 }
 
+.animate-marquee-reverse {
+  animation: marquee 40s linear infinite reverse;
+}
+
 @keyframes marquee-products {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
