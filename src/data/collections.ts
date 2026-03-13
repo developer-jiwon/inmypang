@@ -21,12 +21,8 @@ export type Category = {
   collections: Collection[];
 };
 
-const bgColors = ["#E8E0F0", "#DBEAFE", "#D1FAE5", "#FEE2E2", "#FEF3C7", "#E0E7FF", "#CFFAFE"];
-const fgColors = ["#8B5CF6", "#3B82F6", "#10B981", "#EF4444", "#F59E0B", "#6366F1", "#06B6D4"];
-let colorIdx = 0;
 const PH = (text: string) => {
-  const i = colorIdx++ % bgColors.length;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="${bgColors[i]}"/><text x="200" y="210" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="600" fill="${fgColors[i]}">${text}</text></svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="#F4F3F1"/><text x="200" y="210" text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="400" fill="#999">${text}</text></svg>`;
   return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 };
 
