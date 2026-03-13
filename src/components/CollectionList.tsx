@@ -13,7 +13,7 @@ const categoryStyles = [
   { pill: "bg-[#E0F7FA] text-[#00838F]" },
 ];
 
-function ProductCard({ product }: { product: { id: number; name: string; price: string; img: string; note: string; badge?: string } }) {
+function ProductCard({ product }: { product: { id: number; name: string; img: string; note: string; badge?: string } }) {
   return (
     <a
       href={`https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product.name)}&channel=user&traid=tr_AF6202879`}
@@ -39,10 +39,7 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
         <h3 className="text-[11px] font-semibold leading-snug text-foreground line-clamp-2">
           {product.name}
         </h3>
-        <p className="mt-0.5 text-[9px] text-muted italic line-clamp-1">
-          &ldquo;{product.note}&rdquo;
-        </p>
-        <p className="mt-1 text-[11px] font-medium text-accent-deep">
+        <p className="mt-1 text-[10px] font-medium text-accent-deep">
           쿠팡에서 보기 →
         </p>
       </div>
@@ -95,6 +92,14 @@ function CollectionCard({ collection }: { collection: Collection }) {
   );
 }
 
+function AffiliateDisclosure() {
+  return (
+    <p className="px-5 py-2 text-[9px] text-foreground/30 leading-relaxed">
+      이 페이지의 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+    </p>
+  );
+}
+
 export function CategorySection({ category, index }: { category: Category; index: number }) {
   const style = categoryStyles[index % categoryStyles.length];
   const totalProducts = category.collections.reduce((sum, col) => sum + col.products.length, 0);
@@ -113,6 +118,9 @@ export function CategorySection({ category, index }: { category: Category; index
       {category.collections.map((col) => (
         <CollectionCard key={col.slug} collection={col} />
       ))}
+
+      {/* Affiliate disclosure per category */}
+      <AffiliateDisclosure />
     </section>
   );
 }
