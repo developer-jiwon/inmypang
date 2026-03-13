@@ -10,8 +10,8 @@ const row2 = allCollections.slice(half);
 function MarqueeRow({ items, reverse }: { items: typeof allCollections; reverse?: boolean }) {
   const animClass = reverse ? "animate-marquee-reverse" : "animate-marquee";
   return (
-    <div className="relative flex whitespace-nowrap overflow-hidden">
-      <div className={`flex ${animClass} gap-2.5 pr-2.5`}>
+    <div className="relative flex whitespace-nowrap overflow-hidden" style={{ touchAction: "pan-y" }}>
+      <div className={`flex ${animClass} gap-2.5 pr-2.5`} style={{ willChange: "transform" }}>
         {items.map((col) => (
           <a
             key={col.slug}
@@ -22,7 +22,7 @@ function MarqueeRow({ items, reverse }: { items: typeof allCollections; reverse?
           </a>
         ))}
       </div>
-      <div className={`flex ${animClass} gap-2.5 pr-2.5`} aria-hidden>
+      <div className={`flex ${animClass} gap-2.5 pr-2.5`} aria-hidden style={{ willChange: "transform" }}>
         {items.map((col) => (
           <span
             key={`dup-${col.slug}`}
