@@ -15,7 +15,12 @@ const mustardGradients = [
 
 function ProductCard({ product }: { product: { id: number; name: string; price: string; img: string; note: string; badge?: string } }) {
   return (
-    <a href="#" className="group product-card w-[40vw] shrink-0 rounded-xl bg-card-bg border border-border/60 overflow-hidden sm:w-auto sm:shrink">
+    <a
+      href={`https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product.name)}&channel=user&traid=tr_AF6202879`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group product-card w-[40vw] shrink-0 rounded-xl bg-card-bg border border-border/60 overflow-hidden sm:w-auto sm:shrink"
+    >
       <div className="relative aspect-square overflow-hidden bg-tag-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
