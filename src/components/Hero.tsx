@@ -22,10 +22,10 @@ export function Hero() {
 
           {/* Description + stats inline */}
           <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-            <p className="text-[12px] text-foreground/45">
+            <p className="text-[12px] text-foreground/70">
               큐레이터가 직접 고른 상품, 취향으로 연결되는 쇼핑
             </p>
-            <div className="flex items-center gap-2 text-[11px] font-medium text-foreground/30">
+            <div className="flex items-center gap-2 text-[11px] font-medium text-foreground/50">
               <span>{totalCollections} collections</span>
               <span>·</span>
               <span>{totalProducts}+ items</span>
