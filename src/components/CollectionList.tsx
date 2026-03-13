@@ -3,14 +3,14 @@
 import { useEffect, useRef } from "react";
 import type { Collection } from "@/data/collections";
 
-const mustardGradients = [
-  "linear-gradient(135deg, #DAA520, #E8BE3A)",
-  "linear-gradient(135deg, #C49212, #DAA520)",
-  "linear-gradient(135deg, #D4A017, #E5C040)",
-  "linear-gradient(135deg, #CFA718, #DAA520)",
-  "linear-gradient(135deg, #DAA520, #E0B830)",
-  "linear-gradient(135deg, #C89B15, #D8AE22)",
-  "linear-gradient(135deg, #D09E18, #DAA520)",
+const tagColors = [
+  { bg: "bg-accent/10", text: "text-accent" },
+  { bg: "bg-blue-50", text: "text-blue-500" },
+  { bg: "bg-emerald-50", text: "text-emerald-500" },
+  { bg: "bg-rose-50", text: "text-rose-400" },
+  { bg: "bg-violet-50", text: "text-violet-500" },
+  { bg: "bg-amber-50", text: "text-amber-600" },
+  { bg: "bg-cyan-50", text: "text-cyan-500" },
 ];
 
 function ProductCard({ product }: { product: { id: number; name: string; price: string; img: string; note: string; badge?: string } }) {
@@ -66,6 +66,7 @@ function ProductMarquee({ products }: { products: Collection["products"] }) {
 
 function CollectionCard({ collection, index }: { collection: Collection; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const color = tagColors[index % tagColors.length];
 
   useEffect(() => {
     const el = ref.current;
@@ -89,17 +90,25 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
       id={collection.slug}
       className="reveal scroll-mt-20 py-6"
     >
-      <div className="mb-4 flex items-center gap-3 px-5">
-        <span
-          className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold text-white"
-          style={{ background: mustardGradients[index % mustardGradients.length] }}
-        >
-          {collection.tag}
-        </span>
-        <div className="min-w-0">
-          <h3 className="text-[15px] font-bold text-foreground leading-snug truncate">{collection.title}</h3>
-          <p className="text-[11px] text-foreground/45 truncate">{collection.subtitle}</p>
+      {/* Section header — inourbag style */}
+      <div className="mb-4 px-5">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${color.bg} ${color.text}`}>
+              {collection.tag}
+            </span>
+            <span className="text-[10px] text-foreground/25">·</span>
+            <span className="text-[10px] text-foreground/30">{collection.products.length}개 상품</span>
+          </div>
+          <a
+            href={`#${collection.slug}`}
+            className="text-[10px] font-medium text-accent/60 transition-colors hover:text-accent"
+          >
+            전체보기
+          </a>
         </div>
+        <h3 className="mt-2 text-[16px] font-bold text-foreground leading-snug">{collection.title}</h3>
+        <p className="mt-0.5 text-[11px] text-foreground/40">{collection.subtitle}</p>
       </div>
       <ProductMarquee products={collection.products} />
     </div>
@@ -108,7 +117,7 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
 
 export function CollectionList({ collections }: { collections: Collection[] }) {
   return (
-    <div className="space-y-4">
+    <div className="divide-y divide-border/30">
       {collections.map((col, i) => (
         <CollectionCard key={col.slug} collection={col} index={i} />
       ))}
