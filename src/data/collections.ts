@@ -21,11 +21,13 @@ export type Category = {
   collections: Collection[];
 };
 
-const colors = ["E8E0F0,8B5CF6", "DBEAFE,3B82F6", "D1FAE5,10B981", "FEE2E2,EF4444", "FEF3C7,F59E0B", "E0E7FF,6366F1", "CFFAFE,06B6D4"];
+const bgColors = ["#E8E0F0", "#DBEAFE", "#D1FAE5", "#FEE2E2", "#FEF3C7", "#E0E7FF", "#CFFAFE"];
+const fgColors = ["#8B5CF6", "#3B82F6", "#10B981", "#EF4444", "#F59E0B", "#6366F1", "#06B6D4"];
 let colorIdx = 0;
 const PH = (text: string) => {
-  const c = colors[colorIdx++ % colors.length];
-  return `https://placehold.co/400x400/${c}?text=${encodeURIComponent(text)}&font=raleway`;
+  const i = colorIdx++ % bgColors.length;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="${bgColors[i]}"/><text x="200" y="210" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="600" fill="${fgColors[i]}">${text}</text></svg>`;
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 };
 
 export const categories: Category[] = [
