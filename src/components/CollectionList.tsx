@@ -4,13 +4,13 @@ import { useEffect, useRef } from "react";
 import type { Collection } from "@/data/collections";
 
 const sectionBgs = [
-  "linear-gradient(180deg, rgba(219, 234, 254, 0.3) 0%, transparent 100%)",  // soft blue
-  "linear-gradient(180deg, rgba(224, 215, 255, 0.25) 0%, transparent 100%)", // lavender
-  "linear-gradient(180deg, rgba(209, 250, 229, 0.25) 0%, transparent 100%)", // mint
-  "linear-gradient(180deg, rgba(254, 226, 226, 0.2) 0%, transparent 100%)",  // rose
-  "linear-gradient(180deg, rgba(219, 234, 254, 0.35) 0%, transparent 100%)", // stronger blue
-  "linear-gradient(180deg, rgba(237, 233, 254, 0.3) 0%, transparent 100%)",  // indigo
-  "linear-gradient(180deg, rgba(207, 250, 254, 0.25) 0%, transparent 100%)", // cyan
+  "radial-gradient(ellipse 80% 60% at 20% 30%, rgba(96, 165, 250, 0.18) 0%, transparent 70%)",   // blue blob left
+  "radial-gradient(ellipse 70% 50% at 80% 40%, rgba(167, 139, 250, 0.16) 0%, transparent 70%)",  // lavender blob right
+  "radial-gradient(ellipse 80% 55% at 30% 35%, rgba(52, 211, 153, 0.14) 0%, transparent 70%)",   // mint blob left
+  "radial-gradient(ellipse 75% 50% at 70% 30%, rgba(251, 146, 160, 0.14) 0%, transparent 70%)",  // rose blob right
+  "radial-gradient(ellipse 85% 60% at 25% 40%, rgba(96, 165, 250, 0.22) 0%, transparent 70%)",   // stronger blue blob
+  "radial-gradient(ellipse 70% 55% at 75% 35%, rgba(129, 140, 248, 0.16) 0%, transparent 70%)",  // indigo blob right
+  "radial-gradient(ellipse 80% 50% at 35% 30%, rgba(34, 211, 238, 0.14) 0%, transparent 70%)",   // cyan blob left
 ];
 
 const mustardGradients = [

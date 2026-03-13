@@ -21,7 +21,7 @@ export function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-5xl items-center justify-center px-5 py-3.5">
+      <div className="mx-auto flex max-w-5xl items-center justify-start px-5 py-3.5">
         <a href="/" className="text-[18px] font-extrabold tracking-tight text-foreground">
           인마이팡
         </a>
