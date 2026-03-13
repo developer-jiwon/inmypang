@@ -15,7 +15,7 @@ export function Hero() {
           {/* Left side */}
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-foreground/35">
-              해외살이 쇼핑 큐레이션
+              Shopping Curation
             </p>
             <h1 className="mt-2 font-[family-name:var(--font-playfair)] text-[1.6rem] font-medium leading-tight tracking-tight text-accent sm:text-[2rem]">
               누군가의<br />취향을 담다.

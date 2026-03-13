@@ -24,10 +24,10 @@ export const metadata: Metadata = {
   // TODO: 배포 후 실제 도메인으로 교체
   metadataBase: new URL("https://inmypang.vercel.app"),
   title: "인마이팡 | IN MY PANG",
-  description: "해외살이 30대의 솔직한 한국 쇼핑 큐레이션",
+  description: "취향 좋은 사람들의 쇼핑 큐레이션",
   openGraph: {
     title: "인마이팡 | IN MY PANG",
-    description: "해외살이 30대의 솔직한 한국 쇼핑 큐레이션",
+    description: "취향 좋은 사람들의 쇼핑 큐레이션",
     locale: "ko_KR",
     type: "website",
     siteName: "인마이팡",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "인마이팡 | IN MY PANG",
-    description: "해외살이 30대의 솔직한 한국 쇼핑 큐레이션",
+    description: "취향 좋은 사람들의 쇼핑 큐레이션",
     images: ["/og-image.png"],
   },
   // TODO: Google Search Console 인증 후 아래 주석 해제 및 코드 교체
