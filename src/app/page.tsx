@@ -4,6 +4,7 @@ import { CurationBar } from "@/components/CurationBar";
 import { CategorySection } from "@/components/CollectionList";
 import { FloatingNav } from "@/components/FloatingNav";
 import { Footer } from "@/components/Footer";
+import { WelcomePopup } from "@/components/WelcomePopup";
 import { categories } from "@/data/collections";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       </main>
       <Footer />
       <FloatingNav />
+      <WelcomePopup />
     </div>
   );
 }
