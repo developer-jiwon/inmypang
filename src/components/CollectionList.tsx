@@ -19,7 +19,7 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
       href={`https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product.name)}&channel=user&traid=tr_AF6202879`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group product-card w-[21vw] shrink-0 rounded-xl bg-card-bg border border-border/40 overflow-hidden sm:w-[130px] shadow-sm"
+      className="group product-card rounded-xl bg-card-bg border border-border/40 overflow-hidden shadow-sm"
     >
       <div className="relative aspect-square overflow-hidden bg-tag-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -48,23 +48,12 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
 }
 
 function ProductGrid({ products }: { products: Collection["products"] }) {
-  const half = Math.ceil(products.length / 2);
-  const row1 = products.slice(0, half);
-  const row2 = products.slice(half);
-
   return (
-    <div className="overflow-x-auto scrollbar-hide touch-pan-x px-5">
-      <div className="flex flex-col gap-2 w-max">
-        <div className="flex gap-2">
-          {row1.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
-        <div className="flex gap-2">
-          {row2.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
+    <div className="px-5">
+      <div className="grid grid-cols-4 gap-2">
+        {products.map((p) => (
+          <ProductCard key={p.id} product={p} />
+        ))}
       </div>
     </div>
   );

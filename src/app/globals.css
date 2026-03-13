@@ -86,19 +86,6 @@ body {
   animation: marquee 40s linear infinite reverse;
 }
 
-@keyframes marquee-products {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee-products {
-  animation: marquee-products 18s linear infinite;
-}
-
-.animate-marquee-products:hover {
-  animation-play-state: paused;
-}
-
 @keyframes logo-float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
