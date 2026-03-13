@@ -38,7 +38,7 @@ export const categories: Category[] = [
         subtitle: "오타와에서 4년, 귀국할 때마다 똑같은 걸 사는 나",
         tag: "귀국 쇼핑",
         products: [
-          { id: 101, name: "라운드랩 자작나무 수분 크림", price: "18,900", img: PH("Round+Lab"), note: "캐나다 겨울을 이긴 크림" },
+          { id: 101, name: "라운드랩 자작나무 수분 크림", price: "18,900", img: "https://thumbnail6.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/560698845973381-e0ad1e00-112a-484c-9c5d-1a6b070a73f9.jpg", note: "캐나다 겨울을 이긴 크림" },
           { id: 102, name: "삼양 불닭볶음면 멀티팩", price: "4,480", img: PH("Buldak"), note: "T&T에서 3배 가격", badge: "가격차 큼" },
           { id: 103, name: "메디힐 N.M.F 마스크팩 10매", price: "8,900", img: PH("Mediheal"), note: "기내 필수템", badge: "인기" },
           { id: 104, name: "CJ 햇반 210g x 12개", price: "11,880", img: PH("Hetbahn"), note: "H마트에서 사면 손해" },
