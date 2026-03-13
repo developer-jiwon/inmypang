@@ -149,6 +149,11 @@ body {
   animation: popup 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
 /* ─── Scroll Reveal ─── */
 
 .reveal {
