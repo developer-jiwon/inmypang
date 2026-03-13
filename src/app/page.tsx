@@ -13,10 +13,10 @@ export default function Home() {
       <Header />
       <Hero />
       <CurationBar />
-      <CuratorSection />
       <main className="mx-auto max-w-5xl pb-8">
         <CollectionList collections={categories.flatMap((c) => c.collections)} />
       </main>
+      <CuratorSection />
       <Footer />
       <FloatingNav />
     </div>

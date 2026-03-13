@@ -21,7 +21,12 @@ export type Category = {
   collections: Collection[];
 };
 
-const PH = (text: string) => `https://placehold.co/400x400/f5f5f5/bbb?text=${encodeURIComponent(text)}`;
+const colors = ["E8E0F0,8B5CF6", "DBEAFE,3B82F6", "D1FAE5,10B981", "FEE2E2,EF4444", "FEF3C7,F59E0B", "E0E7FF,6366F1", "CFFAFE,06B6D4"];
+let colorIdx = 0;
+const PH = (text: string) => {
+  const c = colors[colorIdx++ % colors.length];
+  return `https://placehold.co/400x400/${c}?text=${encodeURIComponent(text)}&font=raleway`;
+};
 
 export const categories: Category[] = [
   // ─── 귀국 쇼핑 시리즈 ───
