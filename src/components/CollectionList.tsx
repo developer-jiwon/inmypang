@@ -40,7 +40,7 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
           {product.name}
         </h3>
         <p className="mt-0.5 text-[9px] font-medium text-accent-deep">
-          쿠팡에서 보기 →
+          쿠팡에서 보기
         </p>
       </div>
     </a>
