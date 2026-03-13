@@ -42,8 +42,8 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
         <p className="mt-0.5 text-[9px] text-muted italic line-clamp-1">
           &ldquo;{product.note}&rdquo;
         </p>
-        <p className="mt-1 text-[13px] font-bold text-foreground">
-          {product.price}<span className="text-[9px] font-medium text-muted">원</span>
+        <p className="mt-1 text-[11px] font-medium text-accent-deep">
+          쿠팡에서 보기 →
         </p>
       </div>
     </a>
