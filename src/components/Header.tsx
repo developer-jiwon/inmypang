@@ -57,9 +57,9 @@ export function Header() {
           </button>
 
           {open && (
-            <div className="absolute right-0 top-full mt-3 w-[480px] rounded-2xl border border-border bg-card-bg p-6 shadow-2xl animate-fade-in-up">
-              <p className="mb-4 text-[10px] font-semibold tracking-widest text-muted uppercase">Collections</p>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-5">
+            <div className="absolute right-0 top-full mt-3 w-[85vw] max-w-[480px] max-h-[70vh] overflow-y-auto rounded-2xl border border-border bg-card-bg p-4 sm:p-6 shadow-2xl animate-fade-in-up">
+              <p className="mb-3 text-[10px] font-semibold tracking-widest text-muted uppercase">Collections</p>
+              <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-5">
                 {categories.map((cat) => (
                   <div key={cat.slug}>
                     <p className="mb-2 flex items-center gap-2 text-[12px] font-bold text-foreground">

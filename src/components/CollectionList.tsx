@@ -19,7 +19,7 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
       href={`https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product.name)}&channel=user&traid=tr_AF6202879`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group product-card w-[40vw] shrink-0 rounded-xl bg-card-bg border border-border/60 overflow-hidden sm:w-auto sm:shrink"
+      className="group product-card w-[42vw] shrink-0 rounded-xl bg-card-bg border border-border/60 overflow-hidden sm:w-[200px]"
     >
       <div className="relative aspect-square overflow-hidden bg-tag-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -52,6 +52,22 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
   );
 }
 
+function ProductMarquee({ products }: { products: Collection["products"] }) {
+  return (
+    <div className="overflow-hidden">
+      <div className="flex animate-marquee-products gap-3">
+        {products.map((p) => (
+          <ProductCard key={p.id} product={p} />
+        ))}
+        {/* 복제본 for seamless loop */}
+        {products.map((p) => (
+          <ProductCard key={`dup-${p.id}`} product={p} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CollectionCard({ collection, index }: { collection: Collection; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -73,7 +89,7 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
 
   return (
     <div ref={ref} id={collection.slug} className="reveal scroll-mt-20">
-      <div className="mb-4 flex items-center gap-3">
+      <div className="mb-4 flex items-center gap-3 px-5">
         <span
           className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold text-white"
           style={{ background: mustardGradients[index % mustardGradients.length] }}
@@ -85,11 +101,7 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
           <p className="text-[11px] text-foreground/50 truncate">{collection.subtitle}</p>
         </div>
       </div>
-      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide sm:grid sm:grid-cols-3 sm:overflow-visible md:grid-cols-4">
-        {collection.products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      <ProductMarquee products={collection.products} />
     </div>
   );
 }

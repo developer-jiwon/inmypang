@@ -15,12 +15,12 @@ export function Hero() {
           <h1 className="text-[1.3rem] font-bold leading-snug tracking-tight text-foreground">
             누군가의 취향을 담다.
           </h1>
-          <div className="mt-3 flex items-center gap-3 text-[12px] text-foreground/50">
-            <span><strong className="text-foreground">{totalCollections}</strong> 큐레이션</span>
-            <span className="text-foreground/20">·</span>
-            <span><strong className="text-foreground">{totalProducts}+</strong> 상품</span>
-            <span className="text-foreground/20">·</span>
-            <span><strong className="text-foreground">{categories.length}</strong> 카테고리</span>
+          <div className="mt-2 flex items-center gap-2 text-[10px] text-foreground/40">
+            <span>{totalCollections} 큐레이션</span>
+            <span>·</span>
+            <span>{totalProducts}+ 상품</span>
+            <span>·</span>
+            <span>{categories.length} 카테고리</span>
           </div>
         </div>
       </div>
