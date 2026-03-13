@@ -97,18 +97,18 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
             <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${color.bg} ${color.text}`}>
               {collection.tag}
             </span>
-            <span className="text-[10px] text-foreground/25">·</span>
-            <span className="text-[10px] text-foreground/30">{collection.products.length}개 상품</span>
+            <span className="text-[10px] text-foreground/30">·</span>
+            <span className="text-[10px] font-medium text-foreground/50">{collection.products.length}개 상품</span>
           </div>
           <a
             href={`#${collection.slug}`}
-            className="text-[10px] font-medium text-accent/60 transition-colors hover:text-accent"
+            className="text-[10px] font-medium text-accent transition-colors hover:text-accent-deep"
           >
             전체보기
           </a>
         </div>
-        <h3 className="mt-2 text-[16px] font-bold text-foreground leading-snug">{collection.title}</h3>
-        <p className="mt-0.5 text-[11px] text-foreground/40">{collection.subtitle}</p>
+        <h3 className="mt-2 text-[17px] font-extrabold text-foreground leading-snug">{collection.title}</h3>
+        <p className="mt-0.5 text-[12px] text-foreground/60">{collection.subtitle}</p>
       </div>
       <ProductMarquee products={collection.products} />
     </div>

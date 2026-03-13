@@ -45,28 +45,12 @@ body {
   color: var(--foreground);
   background-color: var(--background);
   background-image:
-    linear-gradient(rgba(218, 165, 32, 0.20) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(218, 165, 32, 0.20) 1px, transparent 1px),
-    linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(218, 165, 32, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(218, 165, 32, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
   background-size: 80px 80px, 80px 80px, 20px 20px, 20px 20px;
   background-attachment: fixed;
-}
-
-/* Cogna-style full-page gradient wash */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  background:
-    radial-gradient(ellipse 120% 60% at 50% 0%, rgba(96, 150, 235, 0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 80% 40% at 20% 10%, rgba(147, 130, 255, 0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 35% at 80% 5%, rgba(96, 180, 255, 0.08) 0%, transparent 55%);
-  pointer-events: none;
-  z-index: 0;
 }
 
 ::-webkit-scrollbar { width: 0; }
