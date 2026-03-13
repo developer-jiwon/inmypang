@@ -13,7 +13,7 @@ export function CurationBar() {
             <a
               key={col.slug}
               href={`#${col.slug}`}
-              className="inline-flex shrink-0 items-center rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white/90 transition-opacity hover:bg-white/25"
+              className="inline-flex shrink-0 items-center rounded-full bg-[#F4F3F1] px-3 py-1 text-[11px] font-semibold text-[#1a2744] transition-opacity hover:bg-white"
             >
               {col.title}
             </a>
@@ -23,7 +23,7 @@ export function CurationBar() {
           {allCollections.map((col) => (
             <span
               key={`dup-${col.slug}`}
-              className="inline-flex shrink-0 items-center rounded-full bg-white/15 px-3 py-1 text-[11px] font-medium text-white/90"
+              className="inline-flex shrink-0 items-center rounded-full bg-[#F4F3F1] px-3 py-1 text-[11px] font-semibold text-[#1a2744]"
             >
               {col.title}
             </span>
