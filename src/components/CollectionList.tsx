@@ -86,7 +86,7 @@ function CollectionCard({ collection }: { collection: Collection }) {
   return (
     <div ref={ref} id={collection.slug} className="reveal scroll-mt-20 py-5">
       <div className="mb-4 px-5">
-        <h3 className="text-[15px] font-light tracking-[0.02em] text-foreground">{collection.title}</h3>
+        <h3 className="text-[15px] font-light tracking-[0.02em] text-foreground"><span className="highlight-zigzag">{collection.title}</span></h3>
         <p className="mt-0.5 text-[11px] font-light text-foreground/40">{collection.subtitle}</p>
       </div>
       <ProductMarquee products={collection.products} />
