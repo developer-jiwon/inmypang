@@ -12,7 +12,7 @@ export function Hero() {
     <section className="py-6">
       <div className="mx-auto max-w-5xl px-5">
         <div className="animate-fade-in-up flex flex-col items-center text-center">
-          <h1 className="text-[1.3rem] font-bold leading-snug tracking-tight text-foreground">
+          <h1 className="font-[family-name:var(--font-cormorant)] text-[1.6rem] font-light italic leading-snug tracking-wide text-foreground">
             누군가의 취향을 담다.
           </h1>
           <div className="mt-2 flex items-center gap-2 text-[10px] text-foreground/40">
