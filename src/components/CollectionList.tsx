@@ -3,6 +3,16 @@
 import { useEffect, useRef } from "react";
 import type { Collection } from "@/data/collections";
 
+const sectionBgs = [
+  "linear-gradient(180deg, rgba(219, 234, 254, 0.3) 0%, transparent 100%)",  // soft blue
+  "linear-gradient(180deg, rgba(224, 215, 255, 0.25) 0%, transparent 100%)", // lavender
+  "linear-gradient(180deg, rgba(209, 250, 229, 0.25) 0%, transparent 100%)", // mint
+  "linear-gradient(180deg, rgba(254, 226, 226, 0.2) 0%, transparent 100%)",  // rose
+  "linear-gradient(180deg, rgba(219, 234, 254, 0.35) 0%, transparent 100%)", // stronger blue
+  "linear-gradient(180deg, rgba(237, 233, 254, 0.3) 0%, transparent 100%)",  // indigo
+  "linear-gradient(180deg, rgba(207, 250, 254, 0.25) 0%, transparent 100%)", // cyan
+];
+
 const mustardGradients = [
   "linear-gradient(135deg, #DAA520, #E8BE3A)",
   "linear-gradient(135deg, #C49212, #DAA520)",
@@ -51,8 +61,8 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
 
 function ProductMarquee({ products }: { products: Collection["products"] }) {
   return (
-    <div className="overflow-hidden">
-      <div className="flex animate-marquee-products gap-3">
+    <div className="overflow-x-auto scrollbar-hide touch-pan-x">
+      <div className="flex animate-marquee-products gap-3 hover:animation-play-state-paused">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
@@ -85,7 +95,12 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
   }, []);
 
   return (
-    <div ref={ref} id={collection.slug} className="reveal scroll-mt-20">
+    <div
+      ref={ref}
+      id={collection.slug}
+      className="reveal scroll-mt-20 py-6"
+      style={{ background: sectionBgs[index % sectionBgs.length] }}
+    >
       <div className="mb-4 flex items-center gap-3 px-5">
         <span
           className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold text-white"

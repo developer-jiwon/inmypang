@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { CurationBar } from "@/components/CurationBar";
 import { CuratorSection } from "@/components/CuratorSection";
 import { CollectionList } from "@/components/CollectionList";
+import { FloatingNav } from "@/components/FloatingNav";
 import { Footer } from "@/components/Footer";
 import { categories } from "@/data/collections";
 
@@ -17,6 +18,7 @@ export default function Home() {
         <CollectionList collections={categories.flatMap((c) => c.collections)} />
       </main>
       <Footer />
+      <FloatingNav />
     </div>
   );
 }

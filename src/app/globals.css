@@ -32,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-restoration: manual;
 }
 
 body {
@@ -68,7 +69,11 @@ body {
 }
 
 .animate-marquee-products {
-  animation: marquee-products 30s linear infinite;
+  animation: marquee-products 18s linear infinite;
+}
+
+.animate-marquee-products:hover {
+  animation-play-state: paused;
 }
 
 @keyframes logo-float {
