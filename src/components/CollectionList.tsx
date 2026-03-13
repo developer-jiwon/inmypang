@@ -19,7 +19,7 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
       href={`https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product.name)}&channel=user&traid=tr_AF6202879`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group product-card w-[22vw] shrink-0 rounded-xl bg-card-bg border border-border/40 overflow-hidden sm:w-[140px] shadow-sm"
+      className="group product-card w-[21vw] shrink-0 rounded-xl bg-card-bg border border-border/40 overflow-hidden sm:w-[130px] shadow-sm"
     >
       <div className="relative aspect-square overflow-hidden bg-tag-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -54,13 +54,13 @@ function ProductGrid({ products }: { products: Collection["products"] }) {
 
   return (
     <div className="overflow-x-auto scrollbar-hide touch-pan-x px-5">
-      <div className="flex flex-col gap-2.5 w-max">
-        <div className="flex gap-2.5">
+      <div className="flex flex-col gap-2 w-max">
+        <div className="flex gap-2">
           {row1.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>
-        <div className="flex gap-2.5">
+        <div className="flex gap-2">
           {row2.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
