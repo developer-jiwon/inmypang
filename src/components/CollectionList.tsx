@@ -49,7 +49,7 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
 
 function ProductMarquee({ products }: { products: Collection["products"] }) {
   return (
-    <div className="overflow-x-auto scrollbar-hide touch-pan-x">
+    <div className="overflow-hidden touch-pan-y">
       <div className="flex animate-marquee-products gap-3 hover:animation-play-state-paused px-5">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
