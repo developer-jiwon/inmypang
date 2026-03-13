@@ -14,7 +14,7 @@ export function Hero() {
         <div className="animate-fade-in-up">
           {/* Main title — black, elegant */}
           <h1 className="text-[1.4rem] font-light tracking-[0.04em] text-foreground sm:text-[1.6rem]">
-            <span className="highlight-zigzag">캐나다 4년차</span>, 내가 한국에 있었다면...
+            누군가의 취향을 담다.
           </h1>
 
           {/* Thin accent line */}
@@ -23,7 +23,7 @@ export function Hero() {
           {/* Description + stats inline */}
           <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <p className="text-[12px] text-foreground/70">
-              오타와에서 4년, 귀국할 때마다 똑같은 걸 사는 나
+              큐레이터가 직접 고른 상품, 취향으로 연결되는 쇼핑
             </p>
             <div className="flex items-center gap-2 text-[11px] font-medium text-foreground/50">
               <span>{totalCollections} collections</span>
