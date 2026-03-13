@@ -26,6 +26,7 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
         <img
           src={product.img}
           alt={product.name}
+          referrerPolicy="no-referrer"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {product.badge && (
