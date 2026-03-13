@@ -1,7 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { CurationBar } from "@/components/CurationBar";
-import { CuratorSection } from "@/components/CuratorSection";
 import { CollectionList } from "@/components/CollectionList";
 import { FloatingNav } from "@/components/FloatingNav";
 import { Footer } from "@/components/Footer";
@@ -16,7 +15,6 @@ export default function Home() {
       <main className="mx-auto max-w-5xl pb-8">
         <CollectionList collections={categories.flatMap((c) => c.collections)} />
       </main>
-      <CuratorSection />
       <Footer />
       <FloatingNav />
     </div>
