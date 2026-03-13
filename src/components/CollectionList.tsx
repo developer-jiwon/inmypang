@@ -90,25 +90,24 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
       id={collection.slug}
       className="reveal scroll-mt-20 py-6"
     >
-      {/* Section header — inourbag style */}
-      <div className="mb-4 px-5">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${color.bg} ${color.text}`}>
-              {collection.tag}
-            </span>
-            <span className="text-[10px] text-foreground/30">·</span>
-            <span className="text-[10px] font-medium text-foreground/50">{collection.products.length}개 상품</span>
-          </div>
-          <a
-            href={`#${collection.slug}`}
-            className="text-[10px] font-medium text-accent transition-colors hover:text-accent-deep"
-          >
-            전체보기
-          </a>
+      {/* Section header */}
+      <div className="mb-5 px-5">
+        <div className="flex items-center gap-2 mb-3">
+          <span className={`rounded-full px-3 py-1.5 text-[11px] font-bold ${color.bg} ${color.text}`}>
+            {collection.tag}
+          </span>
+          <span className="text-[11px] font-medium text-foreground/40">{collection.products.length}개 상품</span>
+          <span className="ml-auto">
+            <a
+              href={`#${collection.slug}`}
+              className="text-[11px] font-semibold text-accent underline underline-offset-2 transition-colors hover:text-accent-deep"
+            >
+              전체보기
+            </a>
+          </span>
         </div>
-        <h3 className="mt-2 text-[17px] font-extrabold text-foreground leading-snug">{collection.title}</h3>
-        <p className="mt-0.5 text-[12px] text-foreground/60">{collection.subtitle}</p>
+        <h3 className="text-[19px] font-extrabold text-foreground leading-tight">{collection.title}</h3>
+        <p className="mt-1 text-[13px] text-foreground/70 leading-relaxed">{collection.subtitle}</p>
       </div>
       <ProductMarquee products={collection.products} />
     </div>
