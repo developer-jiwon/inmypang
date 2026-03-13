@@ -5,7 +5,7 @@ import type { Category, Collection } from "@/data/collections";
 
 const ITEMS_PER_PAGE = 3;
 
-function ProductCard({ product }: { product: { id: number; name: string; price: string; img: string; note: string; badge?: string } }) {
+function ProductCard({ product }: { product: { id: number; name: string; img: string; note: string; badge?: string } }) {
   return (
     <a href="#" className="group product-card rounded-xl bg-card-bg border border-border/60 overflow-hidden">
       <div className="relative aspect-square overflow-hidden bg-tag-bg">
@@ -13,6 +13,7 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
         <img
           src={product.img}
           alt={product.name}
+          referrerPolicy="no-referrer"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {product.badge && (
@@ -25,15 +26,9 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
         <h3 className="text-[13px] font-semibold leading-snug text-foreground line-clamp-2">
           {product.name}
         </h3>
-        <p className="mt-1 text-[11px] text-muted italic line-clamp-1">
-          &ldquo;{product.note}&rdquo;
+        <p className="mt-1 text-[10px] font-medium text-accent-deep">
+          쿠팡에서 보기 →
         </p>
-        <div className="mt-2 flex items-baseline gap-1">
-          <p className="text-[15px] font-bold text-foreground">
-            {product.price}
-          </p>
-          <span className="text-[11px] font-medium text-muted">원</span>
-        </div>
       </div>
     </a>
   );

@@ -89,15 +89,9 @@ export function CollectionRow({ collection, index }: { collection: Collection; i
               <h3 className="text-[13px] font-semibold leading-snug text-foreground line-clamp-2">
                 {product.name}
               </h3>
-              <p className="mt-1 text-[11px] text-muted italic line-clamp-1">
-                &ldquo;{product.note}&rdquo;
+              <p className="mt-1 text-[10px] font-medium text-accent-deep">
+                쿠팡에서 보기 →
               </p>
-              <div className="mt-2 flex items-baseline gap-1">
-                <p className="text-[15px] font-bold text-foreground">
-                  {product.price.toLocaleString()}
-                </p>
-                <span className="text-[11px] font-medium text-muted">원</span>
-              </div>
             </div>
           </a>
         ))}

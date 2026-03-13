@@ -37,12 +37,8 @@ export function ProductGrid() {
               <h3 className="mt-0.5 text-[13px] font-medium leading-snug text-foreground line-clamp-2">
                 {product.name}
               </h3>
-              <p className="mt-1 text-[12px] leading-snug text-muted line-clamp-1 italic">
-                &ldquo;{product.note}&rdquo;
-              </p>
-              <p className="mt-1.5 text-[14px] font-bold text-foreground">
-                {product.price}
-                <span className="text-[12px] font-normal text-muted">원</span>
+              <p className="mt-1 text-[10px] font-medium text-accent-deep">
+                쿠팡에서 보기 →
               </p>
             </div>
           </a>
