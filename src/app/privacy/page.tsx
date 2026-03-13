@@ -39,7 +39,7 @@ export default function PrivacyPage() {
           <p className="mt-2">
             개인정보 관련 문의사항은 아래로 연락해 주세요.
           </p>
-          <p className="mt-1">이메일: inmypang.official@gmail.com</p>
+          <p className="mt-1">이메일: dev.jiwonnie@gmail.com</p>
         </section>
 
         <section>

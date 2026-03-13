@@ -42,7 +42,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-semibold text-foreground">5. 문의</h2>
           <p className="mt-2">
-            서비스 이용 관련 문의: inmypang.official@gmail.com
+            서비스 이용 관련 문의: dev.jiwonnie@gmail.com
           </p>
         </section>
 
