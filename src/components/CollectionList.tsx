@@ -50,7 +50,7 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
 function ProductGrid({ products }: { products: Collection["products"] }) {
   return (
     <div className="px-5">
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-3 gap-2">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
