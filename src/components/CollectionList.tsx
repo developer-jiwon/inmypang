@@ -88,15 +88,10 @@ function CollectionCard({ collection }: { collection: Collection }) {
         <p className="mt-0.5 text-[11px] font-light text-foreground/40">{collection.subtitle}</p>
       </div>
       <ProductMarquee products={collection.products} />
+      <p className="px-5 mt-2 text-[10px] text-foreground/50 leading-relaxed">
+        이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
+      </p>
     </div>
-  );
-}
-
-function AffiliateDisclosure() {
-  return (
-    <p className="px-5 py-2 text-[9px] text-foreground/30 leading-relaxed">
-      이 페이지의 링크는 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
-    </p>
   );
 }
 
@@ -118,9 +113,6 @@ export function CategorySection({ category, index }: { category: Category; index
       {category.collections.map((col) => (
         <CollectionCard key={col.slug} collection={col} />
       ))}
-
-      {/* Affiliate disclosure per category */}
-      <AffiliateDisclosure />
     </section>
   );
 }
