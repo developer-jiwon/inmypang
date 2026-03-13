@@ -100,19 +100,12 @@ export function CategorySection({ category, index }: { category: Category; index
 
   return (
     <section className="mt-10 first:mt-4">
-      {/* Category header — bold, structured */}
-      <div className="px-5 mb-2">
-        <div className="flex items-center gap-3">
-          <span className={`rounded-full px-3 py-1 text-[11px] font-bold ${style.pill}`}>
-            {category.name}
-          </span>
-        </div>
-        <div className="mt-2 flex items-baseline justify-between">
-          <p className="text-[11px] text-foreground/35">
-            {category.collections.length}개 큐레이션 · {totalProducts}개 상품
-          </p>
-        </div>
-        <div className="mt-3 h-px bg-foreground/8" />
+      {/* Category divider */}
+      <div className="px-5 mb-1">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-foreground/30">
+          {category.name}
+        </p>
+        <div className="mt-2 h-px bg-foreground/6" />
       </div>
 
       {/* Collections */}

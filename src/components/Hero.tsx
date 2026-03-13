@@ -13,8 +13,8 @@ export function Hero() {
       <div className="mx-auto max-w-5xl px-5">
         <div className="animate-fade-in-up">
           {/* Main title — black, elegant */}
-          <h1 className="font-[family-name:var(--font-playfair)] text-[2rem] font-medium leading-[1.2] tracking-tight text-foreground sm:text-[2.4rem]">
-            누군가의 취향을<br />담다.
+          <h1 className="text-[1.4rem] font-light tracking-[0.04em] text-foreground sm:text-[1.6rem]">
+            누군가의 취향을 담다.
           </h1>
 
           {/* Thin accent line */}
