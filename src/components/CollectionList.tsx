@@ -3,15 +3,14 @@
 import { useEffect, useRef } from "react";
 import type { Collection, Category } from "@/data/collections";
 
-// Soft pastel pill styles per category
 const categoryStyles = [
-  { pill: "bg-[#FFF3E0] text-[#E67E22]", accent: "#E67E22" },   // 귀국 쇼핑 — warm orange
-  { pill: "bg-[#E8F5E9] text-[#2E7D32]", accent: "#2E7D32" },   // 가격 비교 — green
-  { pill: "bg-[#FCE4EC] text-[#C2185B]", accent: "#C2185B" },   // 20대 여자 — pink
-  { pill: "bg-[#F3E5F5] text-[#7B1FA2]", accent: "#7B1FA2" },   // 30대 여자 — purple
-  { pill: "bg-[#E3F2FD] text-[#1565C0]", accent: "#1565C0" },   // 30대 남자 — blue
-  { pill: "bg-[#FFF8E1] text-[#F57F17]", accent: "#F57F17" },   // 40대 — amber
-  { pill: "bg-[#E0F7FA] text-[#00838F]", accent: "#00838F" },   // 시즌 — teal
+  { pill: "bg-[#FFF3E0] text-[#E67E22]" },
+  { pill: "bg-[#E8F5E9] text-[#2E7D32]" },
+  { pill: "bg-[#FCE4EC] text-[#C2185B]" },
+  { pill: "bg-[#F3E5F5] text-[#7B1FA2]" },
+  { pill: "bg-[#E3F2FD] text-[#1565C0]" },
+  { pill: "bg-[#FFF8E1] text-[#F57F17]" },
+  { pill: "bg-[#E0F7FA] text-[#00838F]" },
 ];
 
 function ProductCard({ product }: { product: { id: number; name: string; price: string; img: string; note: string; badge?: string } }) {
@@ -65,7 +64,7 @@ function ProductMarquee({ products }: { products: Collection["products"] }) {
   );
 }
 
-function CollectionCard({ collection, style }: { collection: Collection; style: typeof categoryStyles[0] }) {
+function CollectionCard({ collection }: { collection: Collection }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -85,14 +84,10 @@ function CollectionCard({ collection, style }: { collection: Collection; style: 
   }, []);
 
   return (
-    <div
-      ref={ref}
-      id={collection.slug}
-      className="reveal scroll-mt-20 py-5"
-    >
+    <div ref={ref} id={collection.slug} className="reveal scroll-mt-20 py-5">
       <div className="mb-4 px-5">
-        <h3 className="text-[17px] font-extrabold text-foreground leading-tight">{collection.title}</h3>
-        <p className="mt-1 text-[12px] text-foreground/55">{collection.subtitle}</p>
+        <h3 className="text-[16px] font-bold text-foreground leading-tight">{collection.title}</h3>
+        <p className="mt-0.5 text-[11px] text-foreground/50">{collection.subtitle}</p>
       </div>
       <ProductMarquee products={collection.products} />
     </div>
@@ -104,25 +99,26 @@ export function CategorySection({ category, index }: { category: Category; index
   const totalProducts = category.collections.reduce((sum, col) => sum + col.products.length, 0);
 
   return (
-    <section className="mt-6 first:mt-0">
-      {/* Category header */}
-      <div className="flex items-center justify-between px-5 py-4 border-t border-border/40 first:border-t-0">
+    <section className="mt-10 first:mt-4">
+      {/* Category header — bold, structured */}
+      <div className="px-5 mb-2">
         <div className="flex items-center gap-3">
-          <span className={`rounded-full px-3.5 py-1.5 text-[12px] font-bold ${style.pill}`}>
+          <span className={`rounded-full px-3 py-1 text-[11px] font-bold ${style.pill}`}>
             {category.name}
           </span>
-          <span className="text-[11px] text-foreground/35">
-            {category.collections.length}개 큐레이션 · {totalProducts}개 상품
-          </span>
         </div>
+        <div className="mt-2 flex items-baseline justify-between">
+          <p className="text-[11px] text-foreground/35">
+            {category.collections.length}개 큐레이션 · {totalProducts}개 상품
+          </p>
+        </div>
+        <div className="mt-3 h-px bg-foreground/8" />
       </div>
 
-      {/* Collections in this category */}
-      <div className="divide-y divide-border/20">
-        {category.collections.map((col) => (
-          <CollectionCard key={col.slug} collection={col} style={style} />
-        ))}
-      </div>
+      {/* Collections */}
+      {category.collections.map((col) => (
+        <CollectionCard key={col.slug} collection={col} />
+      ))}
     </section>
   );
 }
