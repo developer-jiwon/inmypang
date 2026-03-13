@@ -15,9 +15,9 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 gradient-border-bottom ${
+      className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-card-bg/95 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,0,0,0.04)]"
+          ? "bg-background/80 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.03)]"
           : "bg-transparent"
       }`}
     >
