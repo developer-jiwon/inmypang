@@ -19,7 +19,7 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
       href={`https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product.name)}&channel=user&traid=tr_AF6202879`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group product-card w-[32vw] shrink-0 rounded-xl bg-card-bg border border-border/40 overflow-hidden sm:w-[160px] shadow-sm"
+      className="group product-card w-[22vw] shrink-0 rounded-xl bg-card-bg border border-border/40 overflow-hidden sm:w-[140px] shadow-sm"
     >
       <div className="relative aspect-square overflow-hidden bg-tag-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -35,11 +35,11 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
           </span>
         )}
       </div>
-      <div className="p-2.5">
-        <h3 className="text-[11px] font-semibold leading-snug text-foreground line-clamp-2">
+      <div className="p-2">
+        <h3 className="text-[10px] font-semibold leading-snug text-foreground line-clamp-2">
           {product.name}
         </h3>
-        <p className="mt-1 text-[10px] font-medium text-accent-deep">
+        <p className="mt-0.5 text-[9px] font-medium text-accent-deep">
           쿠팡에서 보기 →
         </p>
       </div>
@@ -47,16 +47,24 @@ function ProductCard({ product }: { product: { id: number; name: string; img: st
   );
 }
 
-function ProductMarquee({ products }: { products: Collection["products"] }) {
+function ProductGrid({ products }: { products: Collection["products"] }) {
+  const half = Math.ceil(products.length / 2);
+  const row1 = products.slice(0, half);
+  const row2 = products.slice(half);
+
   return (
-    <div className="overflow-hidden touch-pan-y">
-      <div className="flex animate-marquee-products gap-3 hover:animation-play-state-paused px-5">
-        {products.map((p) => (
-          <ProductCard key={p.id} product={p} />
-        ))}
-        {products.map((p) => (
-          <ProductCard key={`dup-${p.id}`} product={p} />
-        ))}
+    <div className="overflow-x-auto scrollbar-hide touch-pan-x px-5">
+      <div className="flex flex-col gap-2.5 w-max">
+        <div className="flex gap-2.5">
+          {row1.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
+        <div className="flex gap-2.5">
+          {row2.map((p) => (
+            <ProductCard key={p.id} product={p} />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -87,7 +95,7 @@ function CollectionCard({ collection }: { collection: Collection }) {
         <h3 className="text-[15px] font-light tracking-[0.02em] text-foreground"><span className="highlight-zigzag">{collection.title}</span></h3>
         <p className="mt-0.5 text-[11px] font-light text-foreground/40">{collection.subtitle}</p>
       </div>
-      <ProductMarquee products={collection.products} />
+      <ProductGrid products={collection.products} />
       <p className="px-5 mt-2 text-[10px] text-foreground/50 leading-relaxed">
         이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.
       </p>
