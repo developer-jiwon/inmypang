@@ -19,7 +19,7 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
       href={`https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product.name)}&channel=user&traid=tr_AF6202879`}
       target="_blank"
       rel="noopener noreferrer"
-      className="group product-card w-[42vw] shrink-0 rounded-xl bg-card-bg border border-border/60 overflow-hidden sm:w-[200px]"
+      className="group product-card w-[32vw] shrink-0 rounded-lg bg-card-bg border border-border/60 overflow-hidden sm:w-[160px]"
     >
       <div className="relative aspect-square overflow-hidden bg-tag-bg">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -34,19 +34,16 @@ function ProductCard({ product }: { product: { id: number; name: string; price: 
           </span>
         )}
       </div>
-      <div className="p-3">
-        <h3 className="text-[13px] font-semibold leading-snug text-foreground line-clamp-2">
+      <div className="p-2">
+        <h3 className="text-[11px] font-semibold leading-snug text-foreground line-clamp-2">
           {product.name}
         </h3>
-        <p className="mt-1 text-[11px] text-muted italic line-clamp-1">
+        <p className="mt-0.5 text-[9px] text-muted italic line-clamp-1">
           &ldquo;{product.note}&rdquo;
         </p>
-        <div className="mt-2 flex items-baseline gap-1">
-          <p className="text-[15px] font-bold text-foreground">
-            {product.price}
-          </p>
-          <span className="text-[11px] font-medium text-muted">원</span>
-        </div>
+        <p className="mt-1 text-[12px] font-bold text-foreground">
+          {product.price}<span className="text-[9px] font-medium text-muted">원</span>
+        </p>
       </div>
     </a>
   );
