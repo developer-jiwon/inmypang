@@ -3,14 +3,22 @@
 import { useEffect, useRef } from "react";
 import type { Collection } from "@/data/collections";
 
-const sectionBgs = [
-  "radial-gradient(circle 600px at 15% 20%, rgba(96, 165, 250, 0.15) 0%, transparent 70%), radial-gradient(circle 400px at 85% 80%, rgba(167, 139, 250, 0.08) 0%, transparent 70%)",
-  "radial-gradient(circle 500px at 80% 15%, rgba(167, 139, 250, 0.14) 0%, transparent 70%), radial-gradient(circle 350px at 10% 70%, rgba(96, 165, 250, 0.07) 0%, transparent 70%)",
-  "radial-gradient(circle 550px at 25% 30%, rgba(52, 211, 153, 0.12) 0%, transparent 70%), radial-gradient(circle 400px at 90% 60%, rgba(167, 139, 250, 0.06) 0%, transparent 70%)",
-  "radial-gradient(circle 500px at 70% 25%, rgba(251, 146, 160, 0.13) 0%, transparent 70%), radial-gradient(circle 350px at 15% 75%, rgba(52, 211, 153, 0.06) 0%, transparent 70%)",
-  "radial-gradient(circle 600px at 20% 40%, rgba(96, 165, 250, 0.18) 0%, transparent 70%), radial-gradient(circle 300px at 80% 20%, rgba(251, 146, 160, 0.07) 0%, transparent 70%)",
-  "radial-gradient(circle 500px at 75% 30%, rgba(129, 140, 248, 0.14) 0%, transparent 70%), radial-gradient(circle 400px at 20% 80%, rgba(96, 165, 250, 0.06) 0%, transparent 70%)",
-  "radial-gradient(circle 550px at 30% 20%, rgba(34, 211, 238, 0.12) 0%, transparent 70%), radial-gradient(circle 350px at 85% 70%, rgba(129, 140, 248, 0.06) 0%, transparent 70%)",
+// Each section gets floating blobs — positioned absolutely, overflow visible, no hard edges
+const sectionBlobs = [
+  // blue blob left + faint lavender right
+  { blobs: [{ color: "96,165,250", size: 320, x: "-10%", y: "10%", opacity: 0.18 }, { color: "167,139,250", size: 220, x: "75%", y: "60%", opacity: 0.10 }] },
+  // lavender blob right + faint blue left
+  { blobs: [{ color: "167,139,250", size: 300, x: "70%", y: "5%", opacity: 0.16 }, { color: "96,165,250", size: 200, x: "5%", y: "55%", opacity: 0.08 }] },
+  // mint blob left + faint lavender
+  { blobs: [{ color: "52,211,153", size: 340, x: "0%", y: "15%", opacity: 0.14 }, { color: "167,139,250", size: 180, x: "80%", y: "50%", opacity: 0.07 }] },
+  // rose blob right + faint mint
+  { blobs: [{ color: "251,146,160", size: 280, x: "65%", y: "0%", opacity: 0.15 }, { color: "52,211,153", size: 200, x: "10%", y: "60%", opacity: 0.07 }] },
+  // strong blue blob
+  { blobs: [{ color: "96,165,250", size: 360, x: "-5%", y: "20%", opacity: 0.20 }, { color: "251,146,160", size: 180, x: "80%", y: "15%", opacity: 0.08 }] },
+  // indigo blob right
+  { blobs: [{ color: "129,140,248", size: 300, x: "60%", y: "10%", opacity: 0.15 }, { color: "96,165,250", size: 200, x: "5%", y: "70%", opacity: 0.08 }] },
+  // cyan blob left
+  { blobs: [{ color: "34,211,238", size: 320, x: "10%", y: "5%", opacity: 0.14 }, { color: "129,140,248", size: 180, x: "85%", y: "55%", opacity: 0.07 }] },
 ];
 
 const mustardGradients = [
@@ -94,14 +102,29 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
     return () => observer.disconnect();
   }, []);
 
+  const blobData = sectionBlobs[index % sectionBlobs.length];
+
   return (
     <div
       ref={ref}
       id={collection.slug}
-      className="reveal scroll-mt-20 rounded-2xl py-8"
-      style={{ background: sectionBgs[index % sectionBgs.length] }}
+      className="reveal scroll-mt-20 relative py-8 overflow-visible"
     >
-      <div className="mb-5 flex items-center gap-3 px-5">
+      {/* Floating gradient blobs — no hard edges */}
+      {blobData.blobs.map((b, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full blur-3xl pointer-events-none"
+          style={{
+            width: b.size,
+            height: b.size,
+            left: b.x,
+            top: b.y,
+            background: `rgba(${b.color}, ${b.opacity})`,
+          }}
+        />
+      ))}
+      <div className="relative mb-5 flex items-center gap-3 px-5">
         <span
           className="shrink-0 rounded-full px-3 py-1 text-[10px] font-bold text-white"
           style={{ background: mustardGradients[index % mustardGradients.length] }}
@@ -113,14 +136,16 @@ function CollectionCard({ collection, index }: { collection: Collection; index: 
           <p className="text-[11px] text-foreground/45 truncate">{collection.subtitle}</p>
         </div>
       </div>
-      <ProductMarquee products={collection.products} />
+      <div className="relative">
+        <ProductMarquee products={collection.products} />
+      </div>
     </div>
   );
 }
 
 export function CollectionList({ collections }: { collections: Collection[] }) {
   return (
-    <div className="space-y-6 px-4">
+    <div className="space-y-4">
       {collections.map((col, i) => (
         <CollectionCard key={col.slug} collection={col} index={i} />
       ))}
