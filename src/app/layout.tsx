@@ -65,11 +65,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
         />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4588308927468413"
-          crossOrigin="anonymous"
-        />
         <script dangerouslySetInnerHTML={{ __html: "if('scrollRestoration' in history) history.scrollRestoration = 'manual'; window.scrollTo(0,0);" }} />
       </head>
       <body className={`${jakarta.variable} ${playfair.variable} ${cormorant.variable} antialiased`}>
